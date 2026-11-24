@@ -1,0 +1,152 @@
+# ==============================================================================
+# AgroSage AI - Comprehensive Git Ignore Rules
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Dependency & Binary Exclusions
+# ------------------------------------------------------------------------------
+# Frontend dependencies & build artifacts
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Portable Node.js binary directory used for local Windows development
+node_bin/
+
+# Package manager lock files (optional override: keep package-lock.json if needed)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------------------------------------------------------
+# 2. Python & Virtual Environment Exclusions
+# ------------------------------------------------------------------------------
+__pycache__/
+*/__pycache__/
+*/**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python Virtual Environments
+venv/
+.venv/
+env/
+.env_virt/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing & Type-checking
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.pytype/
+
+# ------------------------------------------------------------------------------
+# 3. Environment Secrets & Config Overrides
+# ------------------------------------------------------------------------------
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+!frontend/.env.example
+
+# Credentials, keys & certificates
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+secrets/
+config.private.*
+
+# ------------------------------------------------------------------------------
+# 4. OS & IDE Workspace Metadata
+# ------------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# IDEs & Text Editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ------------------------------------------------------------------------------
+# 5. Temporary & Cache Files
+# ------------------------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.sw?
+node_temp/
+node.zip
+
+# ------------------------------------------------------------------------------
+# 6. EXPLICIT PRESERVATION: Machine Learning Artifacts & Core Files
+# (Do NOT exclude the pre-trained ML model, evaluation results, schema, and dataset)
+# ------------------------------------------------------------------------------
+!crop_recommendation_model.joblib
+!model_info.json
+!evaluation_results.csv
+!feature_names.json
+!Crop_recommendation.csv

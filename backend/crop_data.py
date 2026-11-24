@@ -1,0 +1,245 @@
+# Complete agronomic profiles for all 22 crops recognized by the model
+CROP_CATALOG = {
+    "apple": {
+        "name": "Apple",
+        "scientific_name": "Malus domestica",
+        "category": "Fruits",
+        "growth_duration": "4-5 months (fruiting season)",
+        "ideal_soil": "Well-drained, loamy soil with rich organic content",
+        "climate": "Temperate climate with distinct cold winter chilling",
+        "description": "Apples require cool temperate climates with adequate chilling hours during winter dormancy and moderate summer temperatures.",
+        "key_practices": ["Requires seasonal winter chilling", "Regular pruning and pest control", "Optimal spacing of 4-6 meters"],
+        "economic_value": "High commercial value in fresh fruit and processed cider markets."
+    },
+    "banana": {
+        "name": "Banana",
+        "scientific_name": "Musa acuminata",
+        "category": "Fruits",
+        "growth_duration": "10-12 months",
+        "ideal_soil": "Rich, deep, well-draining alluvial or volcanic soil",
+        "climate": "Warm, humid tropical climate with high rainfall",
+        "description": "Bananas thrive in tropical regions with high humidity and warm temperatures. They are heavy potassium feeders.",
+        "key_practices": ["Heavy potassium fertilization needed", "High moisture retention and drainage", "Wind protection barriers"],
+        "economic_value": "Crucial global staple with steady year-round cash flow."
+    },
+    "blackgram": {
+        "name": "Blackgram (Urad)",
+        "scientific_name": "Vigna mungo",
+        "category": "Pulses",
+        "growth_duration": "75-90 days",
+        "ideal_soil": "Loamy to heavy clay loam with neutral pH",
+        "climate": "Warm and sub-humid climate",
+        "description": "A popular short-duration pulse crop that fixes biological nitrogen, enhancing soil fertility for subsequent crop rotations.",
+        "key_practices": ["Biological nitrogen fixation", "Requires minimal nitrogen fertilization", "Drought tolerant once established"],
+        "economic_value": "Essential dietary pulse in South Asia with stable local demand."
+    },
+    "chickpea": {
+        "name": "Chickpea (Gram)",
+        "scientific_name": "Cicer arietinum",
+        "category": "Pulses",
+        "growth_duration": "90-120 days",
+        "ideal_soil": "Well-drained deep silt or clay loams",
+        "climate": "Cool, dry season crop; sensitive to excessive rainfall",
+        "description": "Chickpea is a premier winter legume adapted to cool, moderately dry conditions. Deep root system aids in drought resistance.",
+        "key_practices": ["Avoid waterlogging at all stages", "Rhizobium seed inoculation", "Intercropping with cereals like wheat"],
+        "economic_value": "Major protein source worldwide with high domestic and export demand."
+    },
+    "coconut": {
+        "name": "Coconut",
+        "scientific_name": "Cocos nucifera",
+        "category": "Plantation",
+        "growth_duration": "Perennial (yields start in 5-6 years)",
+        "ideal_soil": "Sandy loam, coastal alluvium, or red sandy loam",
+        "climate": "Warm and humid tropical climate with plenty of sunshine",
+        "description": "The 'Tree of Life' thrives in tropical coastal and sub-coastal belts with high relative humidity and warm temperatures.",
+        "key_practices": ["High potassium requirement", "Consistent drip irrigation in dry seasons", "Mulching with coconut husks"],
+        "economic_value": "Multi-product palm providing oil, copra, water, coir, and wood."
+    },
+    "coffee": {
+        "name": "Coffee",
+        "scientific_name": "Coffea arabica / canephora",
+        "category": "Plantation / Cash Crop",
+        "growth_duration": "Perennial (annual seasonal harvest)",
+        "ideal_soil": "Deep, fertile, porous volcanic or forest loams rich in humus",
+        "climate": "Cool to warm subtropical/tropical highlands with shade",
+        "description": "Coffee thrives under canopy shade in elevated hill regions with abundant rainfall and balanced humidity.",
+        "key_practices": ["Cultivated under two-tier shade trees", "Requires high organic matter", "Hand harvesting of ripe cherries"],
+        "economic_value": "High-value export commodity powering agricultural economies."
+    },
+    "cotton": {
+        "name": "Cotton",
+        "scientific_name": "Gossypium hirsutum",
+        "category": "Fiber / Cash Crop",
+        "growth_duration": "150-180 days",
+        "ideal_soil": "Deep black soils (Vertisols) with good water-holding capacity",
+        "climate": "Warm climate with long frost-free periods and bright sunshine",
+        "description": "A vital industrial fiber crop requiring moderate rainfall followed by dry, sunny weather during boll maturation.",
+        "key_practices": ["Integrated pest management for bollworms", "Avoid excess vegetative growth with balanced NPK", "Dry harvest period"],
+        "economic_value": "Global textile fiber cornerstone driving manufacturing industries."
+    },
+    "grapes": {
+        "name": "Grapes",
+        "scientific_name": "Vitis vinifera",
+        "category": "Fruits",
+        "growth_duration": "Perennial vine (fruiting in 2-3 years)",
+        "ideal_soil": "Well-drained sandy loam or gravelly soil",
+        "climate": "Mediterranean or warm temperate semi-arid climate",
+        "description": "Vines require warm sunny dry summers to ripen berries and prevent fungal diseases, with cooler dormant periods.",
+        "key_practices": ["Trellising and canopy management", "Pruning twice a year in tropical zones", "Controlled drip fertigation"],
+        "economic_value": "High-profit horticulture for table fruit, raisins, and winemaking."
+    },
+    "jute": {
+        "name": "Jute",
+        "scientific_name": "Corchorus olitorius",
+        "category": "Fiber",
+        "growth_duration": "120-150 days",
+        "ideal_soil": "Alluvial soil of river deltas and flood plains",
+        "climate": "Warm and humid tropical climate with high rainfall",
+        "description": "Known as the 'Golden Fiber', jute thrives in warm, rain-rich deltaic regions and withstands seasonal water logging.",
+        "key_practices": ["Water retting for fiber extraction", "Early sowing before peak monsoon", "High humidity tolerance"],
+        "economic_value": "Eco-friendly, biodegradable packaging fiber with rising global demand."
+    },
+    "kidneybeans": {
+        "name": "Kidney Beans (Rajma)",
+        "scientific_name": "Phaseolus vulgaris",
+        "category": "Pulses",
+        "growth_duration": "90-120 days",
+        "ideal_soil": "Light, friable loam rich in organic matter",
+        "climate": "Mild temperate to cool subtropical mountain climate",
+        "description": "Popular nutrient-rich legume that thrives in moderate temperatures and suffers in extreme heat or water stagnation.",
+        "key_practices": ["Inability to fix adequate nitrogen requires mild basal N", "Staking for climbing types", "Adequate moisture at flowering"],
+        "economic_value": "Premium culinary bean commanding premium market prices."
+    },
+    "lentil": {
+        "name": "Lentil (Masoor)",
+        "scientific_name": "Lens culinaris",
+        "category": "Pulses",
+        "growth_duration": "110-130 days",
+        "ideal_soil": "Alluvial, sandy loam to clay soils with good drainage",
+        "climate": "Cold winter climate with dry ripening period",
+        "description": "A cool-season, drought-hardy legume grown extensively in rotation with cereals to restore nitrogen balance.",
+        "key_practices": ["Low water requirement", "Rhizobium seed treatment", "Zero-tillage relay cropping in rice fallows"],
+        "economic_value": "Global staple pulse packed with iron, protein, and essential minerals."
+    },
+    "maize": {
+        "name": "Maize (Corn)",
+        "scientific_name": "Zea mays",
+        "category": "Cereal",
+        "growth_duration": "90-110 days",
+        "ideal_soil": "Deep, rich, fertile loam or silt loam with neutral pH",
+        "climate": "Warm, sunny weather throughout the growing season",
+        "description": "Known as 'Queen of Cereals', maize has exceptional photosynthetic efficiency (C4 plant) and wide agro-climatic adaptability.",
+        "key_practices": ["Critical irrigation at tasseling and silking", "High nitrogen uptake", "Proper plant population density"],
+        "economic_value": "Versatile industrial, poultry feed, food, and biofuel commodity."
+    },
+    "mango": {
+        "name": "Mango",
+        "scientific_name": "Mangifera indica",
+        "category": "Fruits",
+        "growth_duration": "Perennial (annual summer harvest)",
+        "ideal_soil": "Deep, well-draining alluvial or red loamy soil",
+        "climate": "Tropical and subtropical with distinct dry season for flowering",
+        "description": "The 'King of Fruits' requires hot sunny dry weather during blossoming and fruit set, with abundant rain during early growth.",
+        "key_practices": ["Withhold water before flowering to trigger bloom", "Windbreaks protect young fruitlets", "Grafting for clonal fidelity"],
+        "economic_value": "High domestic and international export value across fresh and pulp markets."
+    },
+    "mothbeans": {
+        "name": "Moth Beans",
+        "scientific_name": "Vigna aconitifolia",
+        "category": "Pulses",
+        "growth_duration": "60-75 days",
+        "ideal_soil": "Light sandy to sandy loam soils",
+        "climate": "Arid and semi-arid warm climate with low rainfall",
+        "description": "Among the most drought-hardy legumes, capable of surviving extreme arid conditions while preventing desert soil erosion.",
+        "key_practices": ["Excellent cover crop for wind erosion control", "Thrives with minimal rainfall (200-300mm)", "Very low input requirement"],
+        "economic_value": "Resilient food security crop used in traditional savories and flour."
+    },
+    "mungbean": {
+        "name": "Mungbean (Moong)",
+        "scientific_name": "Vigna radiata",
+        "category": "Pulses",
+        "growth_duration": "60-70 days",
+        "ideal_soil": "Fertile loam with good internal drainage",
+        "climate": "Warm humid conditions; intolerant to frost",
+        "description": "Fast-maturing summer/monsoon legume, ideally suited for catch-cropping between main agricultural seasons.",
+        "key_practices": ["Ideal for intercropping and crop rotation", "Short growth cycle saves water", "Tolerates moderate drought"],
+        "economic_value": "High protein pulse prized for sprouts, soups, and easy digestibility."
+    },
+    "muskmelon": {
+        "name": "Muskmelon",
+        "scientific_name": "Cucumis melo",
+        "category": "Fruits / Cucurbits",
+        "growth_duration": "75-90 days",
+        "ideal_soil": "Sandy loam, riverbed alluvium with high organic matter",
+        "climate": "Hot, dry sunny climate with low relative humidity during ripening",
+        "description": "Warm-season vine crop requiring hot sunshine and dry atmosphere during maturity to maximize sugar development and sweetness.",
+        "key_practices": ["Riverbed cultivation technique", "Drip irrigation under plastic mulch", "Stop watering days before picking to concentrate sugars"],
+        "economic_value": "Popular seasonal summer cash crop with quick turnaround."
+    },
+    "orange": {
+        "name": "Orange",
+        "scientific_name": "Citrus sinensis",
+        "category": "Fruits / Citrus",
+        "growth_duration": "Perennial (annual fruit ripening)",
+        "ideal_soil": "Well-drained light loams, avoids hardpans or waterlogging",
+        "climate": "Subtropical with moderate temperatures and sunny dry harvest",
+        "description": "Citrus trees demand well-aerated soils and moderate temperatures; excess humidity causes fungal peel disorders.",
+        "key_practices": ["Micro-irrigation and fertigation", "Regular copper-based disease management", "Micronutrient sprays (Zinc, Iron)"],
+        "economic_value": "Massive global consumer market in fresh fruit and juice concentrates."
+    },
+    "papaya": {
+        "name": "Papaya",
+        "scientific_name": "Carica papaya",
+        "category": "Fruits",
+        "growth_duration": "9-12 months to first harvest",
+        "ideal_soil": "Rich, well-draining sandy loam; extremely sensitive to flooding",
+        "climate": "Warm, sunny tropical and subtropical climate without frost",
+        "description": "Fast-growing herbaceous fruit tree yielding nutritious fruits within a year. Collar rot occurs quickly if soil stays waterlogged.",
+        "key_practices": ["Mound or ridge planting prevents water stagnation", "Ring spot virus management", "Balanced regular NPK fertigation"],
+        "economic_value": "Continuous weekly harvesting provides consistent cash flow for growers."
+    },
+    "pigeonpeas": {
+        "name": "Pigeonpeas (Arhar / Toor)",
+        "scientific_name": "Cajanus cajan",
+        "category": "Pulses",
+        "growth_duration": "150-200 days",
+        "ideal_soil": "Deep, well-drained loam or clay loam",
+        "climate": "Warm tropical and subtropical climate with moderate rainfall",
+        "description": "Deep taproot legume capable of drawing subsoil moisture, acting as a buffer against droughts while enriching topsoil.",
+        "key_practices": ["Excellent companion for sorghum or cotton intercropping", "Tolerates high temperatures", "Stems used as biomass fuel"],
+        "economic_value": "Primary pulse crop in tropical drylands with high market stability."
+    },
+    "pomegranate": {
+        "name": "Pomegranate",
+        "scientific_name": "Punica granatum",
+        "category": "Fruits",
+        "growth_duration": "Perennial shrub/tree (fruiting in 2-3 years)",
+        "ideal_soil": "Light loamy to deep sandy loam; tolerant to mild alkalinity",
+        "climate": "Semi-arid climate with hot dry summers and mild winters",
+        "description": "Extremely drought-tolerant horticulture crop suited to arid and semi-arid plains, producing prized antioxidant-rich arils.",
+        "key_practices": ["Regulated water stress triggers flowering (Bahar treatment)", "Fruit bagging against boring insects", "Drip fertigation"],
+        "economic_value": "Superfood status yields high export margins and domestic revenues."
+    },
+    "rice": {
+        "name": "Rice (Paddy)",
+        "scientific_name": "Oryza sativa",
+        "category": "Cereal",
+        "growth_duration": "100-140 days",
+        "ideal_soil": "Clayey, heavy loams with impermeable subsoil to hold water",
+        "climate": "Hot and humid climate with abundant rainfall (100-200+ cm)",
+        "description": "The world's foremost staple cereal crop, traditionally grown in flooded paddy fields with high temperature and humidity requirements.",
+        "key_practices": ["Transplanting seedlings into puddled fields", "Standing water maintenance", "System of Rice Intensification (SRI)"],
+        "economic_value": "Primary caloric staple for over half the global human population."
+    },
+    "watermelon": {
+        "name": "Watermelon",
+        "scientific_name": "Citrullus lanatus",
+        "category": "Fruits / Cucurbits",
+        "growth_duration": "80-100 days",
+        "ideal_soil": "Deep, well-drained sandy or sandy loam soils",
+        "climate": "Warm, sunny and long summer season with low humidity",
+        "description": "High water-content dessert fruit that thrives in loose sandy soils under bright sunlight, requiring minimal rain near maturity.",
+        "key_practices": ["Cultivated on ridges or sandy riverbeds", "Mulching conserves moisture and protects rind", "Withhold irrigation at ripening"],
+        "economic_value": "High demand, fast-cycle summer cash crop."
+    }
+}
