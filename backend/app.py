@@ -5,9 +5,17 @@ from flask_cors import CORS
 from model_service import CropPredictor
 from crop_data import CROP_CATALOG
 
+# Flask application instance exposed for WSGI/ASGI handlers (local & Vercel Python runtime)
 app = Flask(__name__)
-# Enable CORS for all routes to smoothly support Vite development server and production builds
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+# Configurable CORS: allow custom origins if set, otherwise wildcard for universal compatibility
+raw_origins = os.environ.get("FRONTEND_URL") or os.environ.get("CORS_ORIGINS", "*")
+if raw_origins != "*":
+    allowed_origins = [orig.strip() for orig in raw_origins.split(",") if orig.strip()]
+else:
+    allowed_origins = "*"
+
+CORS(app, resources={r"/api/*": {"origins": allowed_origins}}, supports_credentials=True)
 
 # Initialize Predictor singleton with pre-trained model
 try:
@@ -30,6 +38,7 @@ def health_check():
         "test_accuracy": predictor.model_metadata.get("test_accuracy", 0.9955) if predictor else None,
         "supported_crops_count": len(CROP_CATALOG),
         "features": predictor.feature_names if predictor else ["N", "P", "K", "temperature", "humidity", "ph", "rainfall"],
+        "model_path": predictor.model_path if predictor else None,
         "error": model_init_error
     }), 200
 
@@ -52,7 +61,6 @@ def get_crop_detail(crop_id):
     crop_key = crop_id.lower().replace(" ", "")
     crop_info = CROP_CATALOG.get(crop_key)
     if not crop_info:
-        # Search by name match
         for key, val in CROP_CATALOG.items():
             if key == crop_key or val["name"].lower() == crop_id.lower():
                 crop_info = val

@@ -13,20 +13,44 @@ class CropPredictor:
     """
     Production-grade predictor service using the pre-trained Gaussian Naive Bayes model.
     Loads pipeline containing StandardScaler + GaussianNB and LabelEncoder.
+    Supports local development, testing harnesses, and Vercel Serverless Function runtime.
     """
     def __init__(self, model_path=None, model_info_path=None, feature_names_path=None):
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        self.model_path = model_path or os.path.join(base_dir, 'crop_recommendation_model.joblib')
-        self.model_info_path = model_info_path or os.path.join(base_dir, 'model_info.json')
-        self.feature_names_path = feature_names_path or os.path.join(base_dir, 'feature_names.json')
-        
+        backend_dir = os.path.dirname(os.path.abspath(__file__))
+        repo_root = os.path.dirname(backend_dir)
+        cwd = os.getcwd()
+
+        # Robust list of search locations across local and Vercel container paths
+        candidate_dirs = [
+            os.environ.get("MODEL_DIR", ""),
+            repo_root,                          # /var/task (Vercel Lambda task root)
+            os.path.join(repo_root, "backend"),
+            backend_dir,
+            cwd,
+            os.path.join(cwd, "backend")
+        ]
+
+        self.model_path = model_path or self._locate_file("crop_recommendation_model.joblib", candidate_dirs)
+        self.model_info_path = model_info_path or self._locate_file("model_info.json", candidate_dirs)
+        self.feature_names_path = feature_names_path or self._locate_file("feature_names.json", candidate_dirs)
+
         self.pipeline = None
         self.label_encoder = None
         self.feature_names = ["N", "P", "K", "temperature", "humidity", "ph", "rainfall"]
         self.model_metadata = {}
-        
+
         self._load_metadata()
         self._load_model()
+
+    def _locate_file(self, filename, search_dirs):
+        for directory in search_dirs:
+            if not directory:
+                continue
+            candidate = os.path.join(directory, filename)
+            if os.path.isfile(candidate):
+                return os.path.abspath(candidate)
+        # Default fallback to repo root relative to this file
+        return os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(__file__)), filename))
 
     def _load_metadata(self):
         try:
@@ -37,7 +61,7 @@ class CropPredictor:
                 with open(self.model_info_path, 'r') as f:
                     self.model_metadata = json.load(f)
         except Exception as e:
-            print(f"Warning loading metadata: {e}")
+            print(f"Warning loading metadata from {self.model_info_path}: {e}")
 
     def _load_model(self):
         if not os.path.exists(self.model_path):
@@ -48,7 +72,6 @@ class CropPredictor:
             self.pipeline = data['pipeline']
             self.label_encoder = data['label_encoder']
         else:
-            # Fallback in case pickled object is direct pipeline
             self.pipeline = data
             self.label_encoder = None
 
